@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Activity 3</title>
+        <script>
+            function ChangeContent(){
+                document.getElementById("content").innerHTML = "Content Changed.";
+            }
+            function ChangeFont(){
+                document.getElementById("font").style.fontFamily = "Arial"
+            }
+            function HideElement(){
+                document.getElementById("hide").style.display = "none";
+            }
+            function ShowElement(){
+                document.getElementById("hide").style.display = "block";
+            }
+            function Console(){
+                console.log("Hello World");
+            }
+            function Alert(){
+                window.alert("Welcome to CIIT");
+            }
+            function Computer(){
+                let x = 5
+                y= 3
+
+                document.write(x ** y)
+            }
+        </script>
+    </head>
+    <body>
+        <p id="content"> Hello</p>
+        <button type ="button" onclick="ChangeContent()">Change Content</button>
+
+        <p id="font"> Hello</p>
+        <button type ="button" onclick="ChangeFont()">Change Font</button>
+
+        <p id="hide"> Hello</p>
+        <button type ="button" onclick="HideElement()">Hide Element</button>
+        <button type ="button" onclick="ShowElement()">Show Element</button>
+        <br> <br>
+        <button type ="button" onclick="Console()">Show Console</button>
+        <br> <br>
+        <button type ="button" onclick="Alert()"> Show Alert</button>
+
+        <p> 5 raised to the power of 3 is </p>
+        <button type ="button" onclick="Computer()"> Show Result</button>
+        
+    </body>
+</html>
