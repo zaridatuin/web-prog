@@ -645,368 +645,251 @@ img{
 /*** 
 
 ====================================================================
-  Site Header Style
-====================================================================
-
- ***/
-
-.header-wrap{
-  background-color: #3A3B3A;
-  position: sticky;
-  top: 0;
-  left: 0;
+ /* -- HEADER CSS CODE -- */
+ header{
+  position: fixed;
   width: 100%;
-  height: 148px;
-  text-align: center;
-  z-index: 14;
-  box-shadow: 0px 2px 24px rgb(0 0 0 / 3%);
+  height: 105px;
+  left: 0; top: 0;
+  z-index: 3;
+  transition: all 0.5s ease-in-out;
+  border-bottom: 1px solid rgba(0,0,0,0);
 }
-
-.header-wrap .header-logo {
-  display: inline-block;
-  position: absolute;
-  top: 13%;
-  left: 180px;
+header.fixed{
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  height: 80px;
 }
-
-.header-wrap .header-logo img {
-  width: 140px;
-  height: 110px;
-  margin: 0;
-}
-
-.header-wrap .header-nav-wrap ul {
-  text-align: center;
-  display: inline-block;
-  list-style: none;
-  margin-left: 0;
-  margin-top: 58px;
-}
-
-.header-wrap .header-nav-wrap ul li{
-  display: inline-block;
-}
-
-.header-wrap .header-nav-wrap .header-main-nav li{
-  margin: 0 24px;
-}
-
-.header-wrap .header-nav-wrap .header-main-nav li a{
-  font-family: Oswald;
-  padding: 0;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #111;
-}
-
-.header-wrap .header-nav-wrap .header-main-nav li a::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  margin-top: -4px;
-  background: #111;
-  transition: width .3s;
-}
-
-.header-wrap .header-nav-wrap .header-main-nav li a:hover::after {
-  color: #111;
-  width: 100%;
-  transition: width .3s;
-}
-
-.header-wrap .header-nav-wrap .header-main-nav li a.active::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px;
-  margin-top: -4px;
-  background: #111;
-  transition: width .3s;
-}
-
-.header-wrap .header-nav-wrap .header-social{
-  font-size: 22px;
-  position: absolute;
-  top: 0;
-  right: 40px;
-}
-
-.header-wrap .header-nav-wrap .header-social a{
-  font-size: 22px;
-  margin-left: 20px; 
-  transition-duration: 0.3s;
-}
-
-.header-wrap .header-nav-wrap .header-social a:hover{
-  color: #444;
-}
-
-/*** 
-
-====================================================================
-  Menu trigger
-====================================================================
-
- ***/
-
-.header-menu-toggle {
-  display: none;
-  height: 42px;
-  width: 42px;
-  line-height: 42px;
-  font-family: "Lora", serif;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  letter-spacing: .2rem;
-  color: rgba(255, 255, 255, 0.5);
-  transition: all .3s;
-  position: absolute;
-  right: 32px;
-  top: 33px;
-}
-
-.header-menu-toggle:hover,
-.header-menu-toggle:focus {
-  color: #ffffff;
-}
-
-.header-menu-toggle span {
-  display: block;
-  width: 28px;
-  height: 2px;
-  margin-top: -1px;
-  background-color: #111;
-  transition: all .5s;
-  font: 0/0 a;
-  text-shadow: none;
-  color: transparent;
-  position: absolute;
-  top: 50%;
-  left: 9px;
-  right: auto;
-  bottom: auto;
-}
-
-.header-menu-toggle span::before,
-.header-menu-toggle span::after {
-  content: '';
-  width: 100%;
+header .container{
+  position: relative;
   height: 100%;
-  background-color: inherit;
-  position: absolute;
-  left: 0;
-  transition: all .5s;
-}
-
-.header-menu-toggle span::before {
-  top: -10px;
-}
-
-.header-menu-toggle span::after {
-  bottom: -10px;
-}
-
-.header-menu-toggle.is-clicked span {
-  background-color: white;
-  transition: all .1s;
-}
-
-.header-menu-toggle.is-clicked span::before,
-.header-menu-toggle.is-clicked span::after {
-  background-color: #111;
-}
-
-.header-menu-toggle.is-clicked span::before {
-  top: 0;
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
-}
-
-.header-menu-toggle.is-clicked span::after {
-  bottom: 0;
-  -webkit-transform: rotate(225deg);
-  transform: rotate(225deg);
 }
 
 
-/*** 
-
-====================================================================
-  Responsive Site Header Style
-====================================================================
-
- ***/
-
-@media screen and (max-width:1200px) {
-  .header-wrap {
-    text-align: right;
-  }
-
-  .header-wrap .header-nav-wrap {
-    margin-right: 26px;
-  }
-
-  .header-wrap .header-nav-wrap .header-social {
-    display: none;
-  }
-
-}
-
-@media screen and (max-width:1000px) {
-  .header-wrap {
-    background-color: #3A3B3A;
-    height: 114px;
-    position: fixed;
-    top: 0;
-  }
-
-  .header-wrap .header-logo {
-    left: 20px;
-  }
-
-  .header-wrap .header-logo img {
-    width: 145px;
-    height: 69px;
-  }
-
-  .header-wrap .header-nav-wrap {
-    display: none;
-    text-align: left;
-    height: auto;
-    width: 100%;
-    background-color: #fff;
-    padding: 144px 44px 64px;
-  }
-
-  .header-wrap .header-nav-wrap .header-main-nav {
-    display: block;
-    padding-left: 0;
-    height: auto;
-    margin: 0 0 2rem 0;
-    border-top: 1px solid rgb(0 0 0 / 4%);
-  }
-
-  .header-wrap .header-nav-wrap .header-main-nav li {
-    text-align: left;
-    display: block;
-    margin: 0;
-    padding: 7px 0;
-    border-bottom: 1px solid rgb(0 0 0 / 4%);
-  }
-
-  .header-wrap .header-nav-wrap .header-main-nav li a {
-    padding: 18px 0;
-    line-height: 20px;
-  }
-
-  .header-wrap .header-nav-wrap .header-main-nav li a::after {
-    content: '';
-    width: 0;
-  }
-
-  .header-wrap .header-nav-wrap .header-main-nav li a:hover::after {
-    width: 0;
-  }
-
-  .header-wrap .header-nav-wrap .header-main-nav li a.active::after {
-    content: '';
-    width: 0;
-  }
-
-  .header-wrap .header-nav-wrap .header-main-nav li a.active{
-    color: #444;
-  }
-
-  .header-wrap .header-nav-wrap .header-social {
-    text-align: left;
-    display: block;
-    position: static;
-  }
-
-  .header-wrap .header-nav-wrap .header-social li {
-    font-size: 1.8rem;
-    margin-right: 1.6rem;
-  }
-
-  .header-wrap .header-nav-wrap .header-social li a {
-    line-height: 36px;
-    margin-left: 0;
-  }
-
-  .header-wrap .header-menu-toggle {
-    display: block;
-  }
-
-}
-
-@media only screen and (min-width:1000px) {
-  .header-wrap .header-nav-wrap {
-    display: block !important;
-  }
-}
-
-/*** 
-
-====================================================================
-  Billboard Style
-====================================================================
-
- ***/
-
-.billboard-wrap{
-  margin-top: 0;
-  padding: 0;
-}
-
-.billboard-wrap .billboard-bg-img{
+.header_default{
+  float:left;
+  width:100%; height: 100%;
+  position: relative;
+  margin:0 0 0 0;
+  padding:0 0 0 0;
   display: flex;
   align-items: center;
-  height: 100vh;
-  width: 100%;
+  justify-content: space-between;
 }
 
-.billboard-wrap .billboard-bg-img .billboard-content h1{
-  font-family: "Rozha One";
-  font-size: 110px;
-  line-height: 95%;
-  letter-spacing: -0.02em;
-  text-transform: capitalize;  
+
+.site-branding{
+}
+.site-branding a.logo{
+  float: left;
+  text-decoration: none;
+}
+.site-branding a.logo img{
+  float: left;
+  max-width: 260px;
+  height: auto;
+  margin: 0 0 0 0;
+  transition: max-width 0.4s ease-in-out;
+}
+.site-branding a.logo img.logo-2{
+  visibility: hidden;
+}
+header.fixed .site-branding a.logo img{
+  max-width: 200px;
+}
+header.fixed .site-branding a.logo img.logo-2{
+  visibility: visible;
+}
+header.fixed .site-branding a.logo img.logo-1{
+  display: none;
+}
+.site-branding a.logo h3{
+  text-align:left;
+  color: #000;
+  font-size:27px;
+  font-family:'Arial';
+  letter-spacing: -1px;
+}
+.site-branding a.logo h3 span{
+  font-family: 'Arial', serif;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+
+.site-navwrap{
+  /*flex-grow: 1;*/
+  float: left;
+}
+
+
+.navicons{
+  display: none;
+}
+.navicons a.navshow{
+  position: relative;
+  float: left;
+  width: 32px;
+  height: 32px; 
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px; 
+  color: #000;
+  transition: top 0.5s ease;
+}
+
+
+.navicons a.navhide{
+  position: fixed;
+  right: 20px; top: 10px;
+  z-index: 3;
+  text-decoration: none;
+  display: none;
+}
+.navicons a.navhide span{
+  float: left;
+  width: 48px;
+  height: 48px; 
+  color:#fff;
+  font-size: 36px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+.navouter{
+  display: flex;
+}
+
+
+nav.headermenu ul li{
+  float: left;
+  text-align:left;
+  color:#000;
+  font-size:15px;
+  font-weight: 400;
+  margin-right: 30px;
+  font-family: 'Poppins';
+  text-transform: uppercase;
+  position: relative;
+}
+nav.headermenu ul li:last-child{
+  margin-right: 0;
+}
+nav.headermenu ul li a{
   color: #fff;
+  text-decoration: none;
+  padding: 8px 15px;
+}
+header.fixed nav.headermenu ul li a{
+  color: #000;
+}
+nav.headermenu ul li.active a{
+  background: #008dc7;
+  color: #fff !important;
+}
+
+
+
+
+
+.contact-info{
+  float: right;
+  margin-left: 30px;
+  padding-left: 30px;
+  border-left: 1px solid #ddd;
+}
+.contact-info a{
+  float: left;
+  font-size: 17px;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 8px;
+  transition:0.6s;
+  -webkit-transition:0.6s;
+  font-family: 'Poppins';
+}
+.contact-info a:first-of-type{
+  margin-right: 12px;
+}
+.contact-info a:last-of-type{
+  margin-right: 0;
+}
+.contact-info a i{
+  color: #008dc7;
+  margin-right: 5px;
+}
+header.fixed .contact-info a{
+  color: #000;
+}
+/* -- HEADER CSS ENDS -- */
+
+
+
+
+
+
+
+/* -- BANNER -- */
+.banner{
+  float:left;
+  width:100%;
+  margin:0 0 0 0;
+  padding:300px 0 220px 0;
+  background: url('idkreal.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+.banner:before{
+  position:absolute;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.3);
+  left:0; top:0;
+  margin:0 0 0 0; padding:0 0 0 0;
+  z-index:-1;
+  content:'';
+}
+.bannercontent{
+  float:left;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bannercontent .text h3{
+  color:#fff;
+  font-size:40px;
+  font-family:'Poppins';
+  font-weight: normal;
   margin-bottom: 20px;
 }
-
-.billboard-wrap .billboard-bg-img .billboard-content p{
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 200%;
-  letter-spacing: 0.02em;
-  color: #fff;
+.bannercontent .text h2{
+  color:#ffffff;
+  font-size:90px;
+  line-height: 100%;
+  font-family:'Poppins';
+  font-weight: bold;
+  margin-bottom: 30px;
 }
-
-.billboard-wrap .billboard-bg-img .billboard-content a.btn{
-  margin-top: 35px;
+.bannercontent .text p{
+  color:#fff;
+  font-size:21px;
+  line-height: 170%;
+  font-family:'Poppins';
 }
-
-/*** 
-
-====================================================================
-  Responsive Billboard Style
-====================================================================
-
- ***/
-
-@media screen and (max-width:800px){
-  .billboard-wrap .billboard-bg-img .billboard-content h1{
-    font-size: 90px;
-  }
-
-  .billboard-wrap .billboard-bg-img .billboard-content p{
-    font-size: 18px;
-  }
+.bannercontent .text p u{
+  font-weight: bold;
+  color: #ffc818;
 }
-
-/*** 
+/* -- BANNER CSS ENDS -- */
 
 ====================================================================
   About Us Style
