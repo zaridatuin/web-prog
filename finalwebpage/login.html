@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
   <style>
-    #message, #message2 {
-      display: none;
+    
+    body {
+      background-color: #555 ;
+      background-image: url('');
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      border: 2px solid #ccc;
+      padding: 50px;
+      background-color: white;
+      width: 300px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 95%;
+      padding: 5px;
+      margin-bottom: 10px;
+      
     }
 
     .valid {
@@ -24,37 +51,50 @@
       position: relative;
       left: -35px;
     }
+
+    #message, #message2{
+        display: none;
+    }
+
+    form button[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
-
-  <div class="container">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" pattern="[a-zA-Z0-9_]{6,}" required>
-    <br><br>
-    <label for="pwd">Password</label>
-    <input type="password" id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[#?!@$%^&*-]).{8,}" title="Must contain at least one number, one uppercase and lowercase letter, and one special character, and be at least 8 characters long" required>
-    <br>
-    <input type="checkbox" onclick="showPassword()"> Show Password
-    <br><br>
-    <input type="submit" value="Submit">
-  </div>
-
-  <div id="message2">
-    <h3>Username must validate the following:</h3>
-    <p id="length2" class="invalid">At least <b>6 characters</b></p>
-    <p id="special2" class="invalid">No special characters except "_"</p>
-  </div>
-
-  <div id="message">
-    <h3>Password must contain the following:</h3>
-    <p id="letter" class="invalid">At least one <b>lowercase</b> letter</p>
-    <p id="capital" class="invalid">At least one <b>uppercase</b> letter</p>
-    <p id="number" class="invalid">At least one <b>number</b></p>
-    <p id="length" class="invalid">At least <b>8 characters</b></p>
-    <p id="special" class="invalid">At least one <b>special character</b></p>
-  </div>
-
+    <form>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" pattern="[a-zA-Z0-9_]{6,}" required><br>
+        <div id="message2">
+          <h3>Username must validate the following:</h3>
+          <p id="length2" class="invalid">At least <b>6 characters</b></p>
+          <p id="special2" class="invalid">No special characters except "_"</p>
+        </div>
+        <br>
+        <label for="pwd">Password:</label><br>
+        <input type="password" id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[#?!@$%^&*-]).{8,}" title="Must contain at least one number, one uppercase and lowercase letter, and one special character, and be at least 8 characters long" required><br>
+        <input type="checkbox" onclick="showPassword()"> Show Password<br>
+        <div id="message">
+          <h3>Password must contain the following:</h3>
+          <p id="letter" class="invalid">At least one <b>lowercase</b> letter</p>
+          <p id="capital" class="invalid">At least one <b>uppercase</b> letter</p>
+          <p id="number" class="invalid">At least one <b>number</b></p>
+          <p id="length" class="invalid">At least <b>8 characters</b></p>
+          <p id="special" class="invalid">At least one <b>special character</b></p>
+        </div>
+        <br>
+        <button type="submit">Submit</button>
+      </form>
   <script>
     function showPassword() {
       var passwordInput = document.getElementById("pwd");

@@ -856,14 +856,11 @@ header.fixed .contact-info a{
   z-index:-1;
   content:'';
 }
-.bannercontent{
-  float:left;
-  width:100%;
-  display: flex;
-  align-items: center;
+.bannercontent{ float:left; width:100%; 
+  display: flex; 
+  align-items: center; 
   justify-content: space-between;
-}
-
+   padding-top: 0;  }
 .bannercontent .text h3{
   color:#fff;
   font-size:40px;
@@ -890,7 +887,7 @@ header.fixed .contact-info a{
   color: #ffc818;
 }
 /* -- BANNER CSS ENDS -- */
-
+/***
 ====================================================================
   About Us Style
 ====================================================================
@@ -1470,7 +1467,7 @@ header.fixed .contact-info a{
 
 .main-footer .widgets-section{
   padding-bottom: 127px;
-  padding-top: 156px;
+  padding-top: 900px;
 }
 
 .main-footer .widgets-section .footer-column .footer-widget.links-widget{
