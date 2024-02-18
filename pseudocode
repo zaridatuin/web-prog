@@ -1,0 +1,45 @@
+Pseudo code for HTML Login 
+Create HTML document
+    Create head section
+        Set title to "Login"
+        Create style block
+            Set style rules for #message, .valid, .invalid, etc.
+
+    Create body section
+        Create container div
+            Create label for "username"
+            Create input for "username" with type "text" and required attribute
+            Create line break
+            Create label for "pwd"
+            Create input for "pwd" with type "password", pattern, title, and required attributes
+            Create line break
+            Create checkbox with onclick attribute calling showPassword function
+            Create line break
+            Create submit button
+
+        Create div with id "message"
+            Create h3 element with text "Password must contain the following:"
+            Create paragraph element with id "number" and class "invalid" with text "At least one number"
+            Create paragraph element with id "length" and class "invalid" with text "At least 10 characters"
+
+    Create script block
+        Create showPassword function
+            Get element with id "pwd"
+            If type is "password", set type to "text", else set type to "password"
+
+        Get element with id "pwd"
+        Get elements with id "number" and "length"
+
+        Set onfocus event for myInput
+            Display the message div
+
+        Set onblur event for myInput
+            Hide the message div
+
+        Set onkeyup event for myInput
+            Get input value
+            Check if input contains numbers using regular expression
+                If true, update class of element with id "number" to "valid", else update to "invalid"
+
+            Check if input length is greater than or equal to 10
+                If true, update class of element with id "length" to "valid", else update to "invalid"

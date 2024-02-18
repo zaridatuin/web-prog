@@ -1,0 +1,44 @@
+Input the password that we plan to validate:
+
+The user inputs a password into the password field.
+To keep track of the password length, establish a pass_length variable and set it to 0:
+
+The JavaScript code initializes a variable called myInput to represent the password input field.
+The variable number represents the element with the id "number" (for number validation).
+The variable length represents the element with the id "length" (for length validation).
+To keep track of whether the password contains a number, establish a contains_number variable and initially set it to False:
+
+The JavaScript code initializes the contains_number variable and sets it to false.
+Has the entire password been searched?
+
+If not, continue to step 5.
+
+Event listeners are set up to respond to user actions on the password field.
+The onfocus event displays the validation messages.
+The onblur event hides the validation messages when the password field loses focus.
+The onkeyup event triggers validation checks as the user types.
+If so, skip to step 8.
+
+Validation checks continue until the user finishes entering the password.
+Iterate, or move to, the next character in the password:
+
+The onkeyup event triggers iteration through each character in the entered password.
+Increase the value of pass_length by 1:
+
+The JavaScript code increments the pass_length variable for each character in the password.
+Is the current character a number?
+
+If not, go straight back to step 4 and continue to iterate over the entire password.
+If the current character is not a number, the validation for containing a number is marked as invalid.
+If so, set the contains_number variable to True and then go back to step 4.
+If the current character is a number, the contains_number variable is set to True.
+Is the pass_length greater than 8, and is contains_number equal to True?
+
+If not, then the password is invalid.
+If the length is less than 10 or if there is no number in the password, the validation messages indicate that the password is invalid.
+If so, then the password is valid!
+If the length is 10 or more, and there is at least one number, the validation messages indicate that the password is valid.
+
+
+
+
