@@ -1,3 +1,3 @@
 var menuid = '#headnav';
-var scrollspeed = 1200;
+var scrollspeed = 1000;
 var menu_active_class = 'active'; 
