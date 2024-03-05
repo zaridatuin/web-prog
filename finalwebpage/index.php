@@ -76,7 +76,7 @@
 											<ul>
 												<li class="active"><a href="#home">Home</a></li>
 												<li class="contact"><a href="#about">About</a></li>
-												<li><a href="#menu">Menu</a></li>
+												<li><a href="menu.php">Menu</a></li>
 												<li><a href="#contact">Contact</a></li>
 											</ul>
 										</nav>
@@ -142,92 +142,119 @@
 		</section>
 		<!-- BANNER -->
 
-		
+		<section class="contentblock about" id="about">
+			<div class="container">
+				
+
+				<div class="contentinline">
+
+					<div class="text">
+						<h3>About</h3>
+						<h4>Best Smoked Meat in Baguio City! </h4>
+						<p>
+						Welcome to Highland Smokehouse, your culinary haven nestled in the heart of Baguio City. We take pride in offering a unique gastronomic experience, where the cool mountain air meets the rich aroma of our specialty dishes – Smoked Meats, Tacos, and Sandwiches.
+						<br> <br>
+						At Highland Smokehouse, we are more than just a restaurant; we are a celebration of flavors, a tribute to culinary craftsmanship, and a gathering place for those who appreciate exceptional food. Our commitment to excellence is reflected in every dish we serve.		
+					</div>
+
+
+					<div class="imagearea">
+						<img src="img/HS.jpg" style="width: 500px; height: 650px;">
+					</div>
+
+
+				</div>
+
+
+			</div>
+		</section>
+		<!-- ABOUT -->
 
 	  <!-- blog -->
-	  <section class="blog_w3ls py-lg-5" id="menu">
+	
+
+	<section class="blog_w3ls py-lg-5" id="menu">
         <div class="container py-sm-5 py-4">
             <div class="title-section pb-4">
-                <h3 class="main-title-w3_pvt">Menu </h3>
+                <h3 class="main-title-w3_pvt"> Specialties </h3>
                 <span class="title-line">
                 </span>
             </div>
             <div class="row space-sec">
                 <!-- blog grid -->
                 <div class="col-lg-4 col-md-6 mt-sm-0 mt-4" data-aos="zoom-out">
-                    <div class="card border-0">
+                    <div class="card border-1">
                         <div class="card-header p-0 position-relative">
-                            <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="#fullmenu"
+                            <a href="menu.php" data-toggle="modal" aria-pressed="false" data-target="menu.php"
                                 role="button">
-                                <img class="card-img-bottom" src="" alt="Smoked Meat">
+                                <img class="card-img-bottom" src="img/SmokedMeat.jpg" alt="Smoked Meat"
+								style="width: 348px; height: 400px;">
                                 <span class=" bg-theme1 " aria-hidden="true"></span>
 
                             </a>
                         </div>
                         <div class="card-body border-0">
                             <h5 class="blog-title card-title font-weight-bold">
-                                <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="##fullmenu"
+                                <a href="menu.php" data-toggle="modal" aria-pressed="false" data-target="menu.php"
                                     role="button">SMOKED MEAT</a>
                             </h5>
-                            <p>tbc</p>
-                            <button type="button" class="btn blog-btn wthree-bnr-btn mt-3" data-toggle="modal"
-                                aria-pressed="false" data-target="#exampleModal2">
-                                Read more
-                            </button>
+                            <p>Indulge in the smoky allure of our signature smoked meats – from tender chicken and mouthwatering ribs to perfectly crafted brisket. Each bite is a journey into the heart of authentic barbecue, where rich flavors and expert smoking techniques collide.</p>
+                            
                         </div>
                     </div>
                 </div>
                 <!-- //blog grid -->
                 <!-- blog grid -->
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-5 mt-4"  data-aos="zoom-out">
-                    <div class="card border-0">
+                    <div class="card border-1">
                         <div class="card-header p-0 position-relative">
-                            <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="#fullmenu"
+                            <a href="menu.php" data-toggle="modal" aria-pressed="false" data-target="menu.php"
                                 role="button">
-                                <img class="card-img-bottom" src="" alt="Sandwiches">
+                                <img class="card-img-bottom" src="img/Sandwiches.jpg" alt="Sandwiches"
+								style="width: 348px; height: 400px;">
                                 <span class="bg-theme1 " aria-hidden="true"></span>
 
                             </a>
                         </div>
                         <div class="card-body border-0">
                             <h5 class="blog-title card-title font-weight-bold">
-                                <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="#fullmenu"
+                                <a href="menu.php" data-toggle="modal" aria-pressed="false" data-target="menu.php"
                                     role="button">SANDWICHES</a>
                             </h5>
-                            <p>tbc.</p>
-                            <button type="button" class="btn blog-btn wthree-bnr-btn mt-3" data-toggle="modal"
-                                aria-pressed="false" data-target="#exampleModal3">
-                                Read more
-                            </button>
+                            <p>Elevate your sandwich experience with our pulled pork and chicken creations. Slow-cooked to perfection, these sandwiches deliver a harmonious blend of smokiness and tenderness. Join us for a quick bite that transcends the ordinary – where every mouthful reflects our commitment to exceptional flavors.	</p>
+                            
                         </div>
                     </div>
                 </div>
                 <!-- //blog grid -->
                 <!-- blog grid -->
                 <div class="col-lg-4 col-md-6 mt-lg-0 mt-5 mx-auto"  data-aos="zoom-out">
-                    <div class="card border-0">
+                    <div class="card border-1">
                         <div class="card-header p-0  position-relative">
-                            <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="#fullmenu"
+                            <a href="menu.php" data-toggle="modal" aria-pressed="false" data-target="menu.php"
                                 role="button">
-                                <img class="card-img-bottom" src="" alt="Tacos">
+                                <img class="card-img-bottom" src="img/Tacos.jpg" alt="Tacos"
+								style="width: 348px; height: 400px;">
                                 <span class=" bg-theme1 " aria-hidden="true"></span>
                             </a>
                         </div>
                         <div class="card-body border-0">
                             <h5 class="blog-title card-title font-weight-bold">
-                                <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="#fullmenu"
+                                <a href="menu.php" data-toggle="modal" aria-pressed="false" data-target="menu.php"
                                     role="button">TACOS</a>
                             </h5>
-                            <p>tbc</p>
-                            <button type="button" class="btn blog-btn wthree-bnr-btn mt-3" data-toggle="modal"
-                                aria-pressed="false" data-target="#exampleModal4">
-                                Read more
-                            </button>
+                            <p>Experience a burst of flavors with our diverse taco menu. Dive into the freshness of fish, the boldness of pork, the richness of beef, and the authenticity of birria. Our tacos are a fusion of culinary excellence, offering a symphony of tastes and textures inspired by Mexican tradition.</p>
+                            
                         </div>
                     </div>
                 </div>
                 <!-- //blog grid -->
             </div>
+			<div class="row mt-4 text-center">
+            <div class="col-md-12">
+                <a href="menu.php" class="btn btn-dark	">Go to Full Menu</a>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -414,7 +441,7 @@
 			 </button>
 		 </div>
 		 <div class="modal-body">
-			 <form action="#" method="post" class="p-3">
+			 <form action="login.php" method="post" class="p-3">
 				 <div class="form-group">
 					 <label for="recipient-name" class="col-form-label">Username</label>
 					 <input type="text" class="form-control" placeholder="" name=" name" id="recipient-name"
@@ -461,7 +488,7 @@
 			 </button>
 		 </div>
 		 <div class="modal-body">
-			 <form action="#" method="post" class="p-3">
+			 <form action="register2.php" method="post" class="p-3">
 				 <div class="form-group">
 					 <label for="recipient-name" class="col-form-label">Username</label>
 					 <input type="text" class="form-control" placeholder="" name=" name" id="recipient-rname"
@@ -478,8 +505,8 @@
 						 required="">
 				 </div>
 				 <div class="form-group">
-					 <label for="password2" class="col-form-label">Confirm Password</label>
-					 <input type="password" class="form-control" placeholder="" name="Confirm Password" id="password2"
+					 <label for="password2" class="col-form-label">ConfirmPassword</label>
+					 <input type="password" class="form-control" placeholder="" name="Confirm" id="password2"
 						 required="">
 				 </div>
 				 <div class="sub-w3l">

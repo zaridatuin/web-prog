@@ -353,7 +353,69 @@
 		/* -- BANNER CSS ENDS -- */
 
 
-
+.about{
+			float:left;
+			width:100%;
+			margin:0 0 0 0;
+			padding:100px 0;
+		}
+		.about .contentinline{
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row-reverse;
+		}
+		.about .imagearea{
+			width: 50%;
+			margin: 0 0 0 0;
+			overflow:hidden;
+		}
+		.about .imagearea img{
+			float: left;
+			width: 100%; height: auto;
+			aspect-ratio: 2/1.75;
+			object-fit: cover;
+			object-position: center;
+		}
+		.about .text{
+			width: 45%;
+			margin: 0 0 0 0;
+		}
+		.about .text h3{
+			text-align:left;
+			color:#000;
+			font-size:90px;
+			font-family:'Poppins';
+			margin-bottom: 10px;
+		}
+		.about .text h4{
+			text-align:left;
+			color:#008dc7;
+			font-size:30px;
+			font-family:'Poppins';
+			font-weight: normal;
+			font-style: normal;
+			margin-bottom: 30px;
+			position: relative;
+		}
+		.about .text p{
+			text-align:left;
+			color:#000;
+			font-size:18px;
+			line-height: 170%;
+			font-family:'Poppins';
+			margin-bottom: 30px;
+		}
+		.about .text ul{
+			list-style: disc;
+			padding-left: 18px;
+		}
+		.about .text ul li{
+			text-align:left;
+			color:#000;
+			font-size:18px;
+			font-family:'Poppins';
+			margin-bottom: 5px;
+		}
 
 
 

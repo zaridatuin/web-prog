@@ -1,0 +1,96 @@
+<div class="row">
+    <?php foreach ($categories as $category) { ?>
+        <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-5 mt-4" data-aos="zoom-out">
+            <div class="card border-0">
+                <div class="card-header p-0 position-relative">
+                    <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="#fullmenu" role="button">
+                        <!-- Use dynamic category name -->
+                        <img class="card-img-bottom" src="path/to/your/image.jpg" alt="<?php echo $category['category']; ?>">
+                        <span class="bg-theme1" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="card-body border-0">
+                    <h5 class="blog-title card-title font-weight-bold">
+                        <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="#fullmenu" role="button">
+                            <!-- Use dynamic category name -->
+                            <?php echo $category['category']; ?>
+                        </a>
+                    </h5>
+                    <?php foreach ($productsByCategory[$category['category']] as $productData) { ?>
+                        <!-- Generate HTML for each product in the category -->
+                        <p><?php echo isset($productData['description']) ? $productData['description'] : 'Description'; ?></p>
+                        <button type="button" class="btn blog-btn wthree-bnr-btn mt-3" data-toggle="modal"
+                                aria-pressed="false" data-target="#exampleModal3">
+                            <?php
+                            $formattedPrice = isset($productData['price']) ? '$' . number_format($productData['price'], 2) : 'Read more';
+                            echo $formattedPrice;
+                            ?>
+                        </button>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+
+
+
+
+
+
+
+
+
+    <?php
+// Your database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "finalwebpage";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch all product categories from the database
+$categoriesQuery = "SELECT DISTINCT category FROM products";
+$categoriesResult = $conn->query($categoriesQuery);
+
+// Check if there are categories
+if ($categoriesResult->num_rows > 0) {
+    // Fetch all categories into an array
+    $categories = $categoriesResult->fetch_all(MYSQLI_ASSOC);
+} else {
+    // Handle the case when no categories are found
+    $categories = array();
+}
+
+// Fetch products for each category
+$productsByCategory = array();
+foreach ($categories as $category) {
+    $categoryName = $category['category'];
+
+    $productsQuery = "SELECT * FROM products WHERE category='$categoryName'";
+    $productsResult = $conn->query($productsQuery);
+
+    // Check if there are products for the category
+    if ($productsResult->num_rows > 0) {
+        // Fetch all products for the category into an array
+        $productsByCategory[$categoryName] = $productsResult->fetch_all(MYSQLI_ASSOC);
+
+        // Format the prices for each product
+        foreach ($productsByCategory[$categoryName] as &$productData) {
+            $productData['formattedPrice'] = '₱' . number_format($productData['price'], 2);
+        }
+        unset($productData); // Unset to avoid potential side effects
+    } else {
+        // Handle the case when no products are found for the category
+        $productsByCategory[$categoryName] = array();
+    }
+}
+
+$conn->close();
+?>
