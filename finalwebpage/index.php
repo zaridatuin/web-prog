@@ -47,7 +47,7 @@
 
 
 					<div class="site-branding">
-						<a href="index.html" class="logo">
+						<a href="index.php" class="logo">
 							<img src="img/log.png" alt="" class="logo-1">
 							<img src="img/log.png" alt="" class="logo-2">
 						</a>
@@ -90,13 +90,30 @@
 						<!--site-navwrap-->	
 
 						<div class="contact-info">
-							<a href="#exampleModal" data-toggle="modal" aria-pressed="false"> LOGIN</a>	
-                            
-                                <a class="social-icon" href="https://www.facebook.com/highlandsmokes" target="_blank"><span class="iconify" data-icon="la:facebook-f"></span></a>
-                           
-                           
-                                <a class="social-icon" href="https://www.instagram.com/highlandsmokehouse/" target="_blank"><span class="iconify" data-icon="la:instagram"></span></a>
-                           
+							<a href="#cart" data-toggle="modal" aria-pressed="false"> 
+							<?php
+    session_start();
+    if(isset($_SESSION['email'])) {
+        $email = $_SESSION['email'];
+        // Check if email length is greater than 8 characters
+        if(strlen($email) > 8) {
+            echo substr($email, 0, 8) . ".."; // Display first 8 characters followed by "..."
+        } else {
+            echo $email;
+        }
+		echo '<i class="fas fa-shopping-cart"></i>';
+    } else {
+        echo '<a href="#exampleModal" data-toggle="modal" aria-pressed="false">LOGIN';
+    }
+    ?>
+	</a>
+	<?php
+    if(isset($_SESSION['email'])) {
+        echo '<a href="logout.php" class="ml-2"><i class="fas fa-sign-out-alt"></i></a>';
+    }
+    ?>
+	
+                        
 						</div>
 					</div>
 						
@@ -365,7 +382,7 @@
 						<div class="col-lg-4 col-sm-6 footv4-left">
 	
 							<h2>
-								<a href="index.html">HIGHLAND SMOKEHOUSE</a>
+								<a href="index.php">HIGHLAND SMOKEHOUSE</a>
 							</h2>
 							<p class="text-white"> Highland Smokehouse boasts the best Texas Style BBQ in Town!</p>
 	
@@ -375,7 +392,7 @@
 							<h3>Navigation</h3>
 							<ul class="v4-content">
 								<li>
-									<a href="index.html">Home</a>
+									<a href="index.php">Home</a>
 								</li>
 								
 								<li>

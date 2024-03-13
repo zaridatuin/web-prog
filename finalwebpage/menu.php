@@ -47,7 +47,7 @@
 
 
 					<div class="site-branding">
-						<a href="index.html" class="logo">
+						<a href="index.php" class="logo">
 							<img src="img/log.png" alt="" class="logo-1">
 							<img src="img/log.png" alt="" class="logo-2">
 						</a>
@@ -90,16 +90,34 @@
 						<!--site-navwrap-->	
 
 						<div class="contact-info">
-							<a href="#exampleModal" data-toggle="modal" aria-pressed="false"> LOGIN</a>	
-                            
-                                <a class="social-icon" href="https://www.facebook.com/highlandsmokes" target="_blank"><span class="iconify" data-icon="la:facebook-f"></span></a>
-                           
-                           
-                                <a class="social-icon" href="https://www.instagram.com/highlandsmokehouse/" target="_blank"><span class="iconify" data-icon="la:instagram"></span></a>
-                           
+							<a href="#cart" data-toggle="modal" aria-pressed="false"> 
+							<?php
+    session_start();
+    if(isset($_SESSION['email'])) {
+        $email = $_SESSION['email'];
+        // Check if email length is greater than 8 characters
+        if(strlen($email) > 8) {
+            echo substr($email, 0, 8) . ".."; // Display first 8 characters followed by "..."
+        } else {
+            echo $email;
+        }
+		echo '<i class="fas fa-shopping-cart"></i>';
+    } else {
+        echo '<a href="#exampleModal" data-toggle="modal" aria-pressed="false"> LOGIN</a>';
+    }
+    ?>
+	</a>
+	<?php
+    if(isset($_SESSION['email'])) {
+        echo '<a href="logout.php" class="ml-2"><i class="fas fa-sign-out-alt"></i></a>';
+    }
+    ?>
+	
+                        
 						</div>
 					</div>
 						
+
 
 
 				</div>
@@ -110,64 +128,63 @@
 		<!-- HEADER -->
 
 
+	
 
 
 
+<!-- Assuming you have already fetched product names and categories from the database -->
+<?php include('fullmenu.php'); ?>
 
 
-        <?php
-    include('fullmenu.php');
-    ?>
+<section class="banner">
 
-
-		<section class="banner">
-			<div class="container">
+    <div class="container">
+	<div class="category-buttons">
+                <?php
+                // Assuming you have an array $distinctCategories containing distinct product categories
+                foreach ($distinctCategories as $category) {
+                    echo '<button class="btn btn-secondary mx-3 mb-5" onclick="filterProducts(\'' . urlencode($category) . '\')">' . $category . '</button>';
+                }
+                ?>
+                <button class="btn btn-secondary  mb-5" onclick="resetFilter()">All Products</button>
 				
-				<div class="bannercontent">
-					
-                <div class="row">
-                <div class="row">
-                <div class="row">
-    <?php foreach ($productNames as $productNameData) { ?>
-        <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-5 mt-4" data-aos="zoom-out">
-            <div class="card border-1 mb-4">
-                <div class="card-header p-0 position-relative">
-                    <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="#fullmenu" role="button">
-                        <!-- Use dynamic product name -->
-                        <?php
-                        $imageName = $productNameData['productname'] . '.jpg';
-                        $imageSource = 'img/' . $imageName;
-                        ?>
-                        <img class="card-img-bottom" src="<?php echo $imageSource; ?>" alt="<?php echo $productNameData['productname']; ?>"
-                             style="width: 368px; height: 400px;">
-                        <!-- Adjust the width and height values as needed -->
-                        <span class="bg-theme1" aria-hidden="true"></span>
-                    </a>
-                </div>
-                <div class="card-body border-1">
-                    <h5 class="blog-title card-title font-weight-bold">
-                        <a href="#fullmenu" data-toggle="modal" aria-pressed="false" data-target="#fullmenu" role="button">
-                            <!-- Use dynamic product name -->
-                            <?php echo $productNameData['productname']; ?>
-                        </a>
-                    </h5>
-                    <?php foreach ($productsByProductName[$productNameData['productname']] as $productData) { ?>
-                        <!-- Generate HTML for each product in the product name -->
-                        <p><?php echo isset($productData['description']) ? $productData['description'] : 'Description'; ?></p>
-                        <button type="button" class="btn blog-btn wthree-bnr-btn mt-3" data-toggle="modal"
-                                aria-pressed="false" data-target="#exampleModal3">
-                            <?php
-                            $formattedPrice = isset($productData['price']) ? '₱' . number_format($productData['price'], 2) : 'Read more';
-                            echo $formattedPrice;
-                            ?>
-                        </button>
-                    <?php } ?>
-                </div>
+            </div>
+      
+	
+            <div class="row" id="products-container">
+                <?php foreach ($productNames as $productNameData) { ?>
+                    <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-5 mt-4 category-<?php echo urlencode($productNameData['category']); ?>">
+                        <div class="card border-1 mb-4">
+                            <div class="card-header p-0 position-relative">
+                                <?php
+                                $imageName = $productNameData['productname'] . '.jpg';
+                                $imageSource = 'img/' . $imageName;
+                                ?>
+                                <img class="card-img-bottom img-fluid" src="<?php echo $imageSource; ?>" alt="<?php echo $productNameData['productname']; ?>">
+                                <span class="bg-theme1" aria-hidden="true"></span>
+                            </div>
+                            <div class="card-body border-1">
+                                <h5 class="blog-title card-title font-weight-bold">
+                                    <?php echo $productNameData['productname']; ?>
+                                </h5>
+                                <?php foreach ($productsByProductName[$productNameData['productname']] as $productData) { ?>
+                                    <p><?php echo isset($productData['description']) ? $productData['description'] : 'Description'; ?></p>
+                                    <button type="button" class="btn blog-btn wthree-bnr-btn mt-3" data-toggle="modal" aria-pressed="false" data-target="#exampleModal3">
+                                        <?php
+                                        $formattedPrice = isset($productData['price']) ? '₱' . number_format($productData['price'], 2) : 'Read more';
+                                        echo $formattedPrice;
+                                        ?>
+                                    </button>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         </div>
-    <?php } ?>
-</div>
-						
+    </div>
+</section>
+			
 					
 
 				</div>
@@ -273,7 +290,35 @@
 <!-- // register -->
 
 
+<script>
+    function filterProducts(category) {
+        var productsContainer = document.getElementById('products-container');
 
+        // Show all products
+        var products = productsContainer.getElementsByClassName('col-lg-4');
+        for (var i = 0; i < products.length; i++) {
+            products[i].style.display = 'block';
+        }
+
+        // Hide products not in the selected category
+        var categoryProducts = document.getElementsByClassName('category-' + category);
+        for (var i = 0; i < products.length; i++) {
+            if (!products[i].classList.contains('category-' + category)) {
+                products[i].style.display = 'none';
+            }
+        }
+    }
+
+    function resetFilter() {
+        var productsContainer = document.getElementById('products-container');
+
+        // Show all products
+        var products = productsContainer.getElementsByClassName('col-lg-4');
+        for (var i = 0; i < products.length; i++) {
+            products[i].style.display = 'block';
+        }
+    }
+</script>
 		<script src="js/bliss.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<script>

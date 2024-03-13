@@ -60,6 +60,44 @@ foreach ($productNames as $productNameData) {
     }
 }
 
+// Fetch DISTINCT categories from the database using prepared statements
+$distinctCategoriesQuery = "SELECT DISTINCT category FROM products";
+$stmt = $conn->prepare($distinctCategoriesQuery);
+$stmt->execute();
+$stmt->bind_result($category);
+$distinctCategories = array();
+while ($stmt->fetch()) {
+    $distinctCategories[] = $category;
+}
+$stmt->close();
+
+// Fetch all product data
+$allProductsQuery = "SELECT * FROM products";
+$allProductsResult = $conn->query($allProductsQuery);
+
+$productNames = [];
+$productsByProductName = [];
+
+if ($allProductsResult->num_rows > 0) {
+    while ($row = $allProductsResult->fetch_assoc()) {
+        $productName = $row['productname'];
+        $category = $row['category'];
+
+        // Group products by product name
+        $productsByProductName[$productName][] = [
+            'description' => $row['description'],
+            'price' => $row['price'],
+            // Add other product details as needed
+        ];
+
+        $productNames[] = [
+            'productname' => $productName,
+            'category' => $category,
+            // Add other product details as needed
+        ];
+    }
+}
+
 $conn->close();
 ?>
 

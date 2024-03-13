@@ -28,7 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         echo "Login successful!";
-        // You can set session variables, redirect, etc. for a successful login
+        
+        // Start session
+        session_start();
+        
+        // Store user's email in session (example)
+        $_SESSION['email'] = $loginUsername;
+        
+        // Redirect to successfulindex.php
+        header("Location: index.php");
+        exit(); // Ensure that subsequent code is not executed after redirection
     } else {
         echo "Error: Incorrect username or password.";
     }
