@@ -27,19 +27,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo "Login successful!";
-        
         // Start session
         session_start();
         
         // Store user's email in session (example)
         $_SESSION['email'] = $loginUsername;
         
-        // Redirect to successfulindex.php
-        header("Location: index.php");
-        exit(); // Ensure that subsequent code is not executed after redirection
+        // Echo 'success' if login is successful
+        echo "success";
+        exit(); // Ensure that subsequent code is not executed after echoing 'success'
     } else {
-        echo "Error: Incorrect username or password.";
+        // Display error message using JavaScript alert
+        echo "error";
+        exit(); // Ensure that subsequent code is not executed after echoing 'error'
     }
 
     // Close the database connection

@@ -22,6 +22,7 @@
 		<link rel="stylesheet" href="fonts/icons-fontawesome/css/all.min.css">
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="style-responsive.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 
 		<script src="js/jquery.js"></script>
@@ -101,7 +102,7 @@
         } else {
             echo $email;
         }
-		echo '<i class="fas fa-shopping-cart"></i>';
+		echo '<a href="#cart"><i class="fas fa-shopping-cart"></i>';
     } else {
         echo '<a href="#exampleModal" data-toggle="modal" aria-pressed="false">LOGIN';
     }
@@ -283,7 +284,7 @@
 		<section class="contact-wthree" id="contact">
 			<div class="container py-sm-5">
 				<div class="title-section py-4">
-					<h3 class="main-title-w3_pvt">Reach us</h3>
+					<h3 class="main-title-w3_pvt">Contact us</h3>
 					<span class="title-line">
 					</span>
 				</div>
@@ -294,7 +295,7 @@
 							<p>Calle Uno Food Hub #3 Escoda Street, Baguio City, Philippines</p>
 						</div>
 						<hr>
-						<p>oh</p>
+						<p></p>
 						<!-- map -->
 						<div class="map">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d593.6429875827503!2d120.58563311044705!3d16.413550511125266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a16fe3e655ff%3A0x41eefd411a711fe7!2s3%20Escoda%2C%20Baguio%2C%202600%20Benguet!5e1!3m2!1sen!2sph!4v1708101471421!5m2!1sen!2sph"
@@ -396,11 +397,11 @@
 								</li>
 								
 								<li>
-									<a href="#menu" class="scroll">Menu</a>
+									<a href="menu.php" class="scroll">Menu</a>
 								</li>
 								
 								<li>
-									<a href="#contact" class="scroll">Reach</a>
+									<a href="#contact" class="scroll">Contact</a>
 								</li>
 							</ul>
 						</div>
@@ -409,14 +410,14 @@
 								<h3>stay connected</h3>
 								<ul>
 									<li>
-										<a href="#">
-											<span class="fa fa-facebook-f icon_facebook"></span>
-										</a>
+                                   <a href=" ">
+                                        <i class="bi bi-facebook facebook-icon" style=" font-size: 2rem; color: #3b5998; margin: 0.5rem;"></i>
+                                     </a>
 									</li>
 									<li>
-										<a href="#">
-											<span class="fa fa-instagram icon_instagram"></span>
-										</a>
+                                    <a href=" ">
+                                        <i class="bi bi-instagram instagram-icon"style=" font-size: 2rem; color: #c32aa3;"></i>
+                                    </a>
 									</li>
 									
 									</li>
@@ -428,11 +429,11 @@
 							<h3>contact</h3>
 							<ul class="d-flex header-agile pt-0 flex-column">
 								<li>
-									<span class="fa fa-envelope-open"></span>
+									<span class="fa fa-envelope-open"></span> <br>
 									<a href="mailto:example@email.com" class="text-white">highlandsmokess@gmail.com</a>
 								</li>
 								<li class="mt-3">
-									<span class="fa fa-phone"></span>
+									<span class="fa fa-phone"></span> <br>
 									<p class="d-inline text-white">+0927 031 6695</p>
 								</li>
 							</ul>
@@ -447,102 +448,205 @@
 
 
  <!-- login  -->
- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
- aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered" role="document">
-	 <div class="modal-content bg-theme1">
-		 <div class="modal-header">
-			 <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
-			 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				 <span aria-hidden="true">&times;</span>
-			 </button>
-		 </div>
-		 <div class="modal-body">
-			 <form action="login.php" method="post" class="p-3">
-				 <div class="form-group">
-					 <label for="recipient-name" class="col-form-label">Username</label>
-					 <input type="text" class="form-control" placeholder="" name=" name" id="recipient-name"
-						 required="">
-				 </div>
-				 <div class="form-group">
-					 <label for="password" class="col-form-label">Password</label>
-					 <input type="password" class="form-control" placeholder="" name="Password" id="password"
-						 required="">
-				 </div>
-				 <div class="right-w3l">
-					 <input type="submit" class="form-control" value="Login">
-				 </div>
-				 <div class="row sub-w3l my-3">
-					 <div class="col sub-w3_pvt">
-						 <input type="checkbox" id="brand1" value="">
-						 <label for="brand1" class="text-white">
-							 <span></span>Remember me?</label>
-					 </div>
-					 <div class="col forgot-w3l text-right">
-						 <a href="#" class="text-white">Forgot Password?</a>
-					 </div>
-				 </div>
-				 <p class="text-center dont-do text-white">Don't have an account?
-					 <a href="#" data-toggle="modal" data-target="#exampleModal1" class="text-white">
-						 Register Now</a>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-theme1">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" class="p-3">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Username</label>
+                            <input type="text" class="form-control" placeholder="" name="name" id="recipient-name"
+                                required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="" name="Password" id="password"
+                                required="">
+                        </div>
+                        <div class="right-w3l">
+                            <input type="submit" class="form-control" value="Login">
+                        </div>
+                        <div class="row sub-w3l my-3">
+                            <div class="col sub-w3_pvt">
+                                <input type="checkbox" id="brand1" value="">
+                                <label for="brand1" class="text-white">
+                                    <span></span>Remember me?</label>
+                            </div>
+                            <div class="col forgot-w3l text-right">
+                                <a href="#" class="text-white">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <p class="text-center dont-do text-white">Don't have an account?
+                            <a href="#" data-toggle="modal" data-target="#exampleModal1" class="text-white">
+                                Register Now</a>
 
-				 </p>
-			 </form>
-		 </div>
-	 </div>
- </div>
-</div>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var formData = new FormData(this); // Get form data
+
+            // Send form data to login.php using fetch API
+            fetch('login.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'success') {
+                    alert('Login successful!');
+                    window.location.href = 'index.php'; // Redirect to index.php
+                } else {
+                    alert('Error: Incorrect username or password.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+    </script>
+
+</html>
 <!-- //login -->
 <!-- register -->
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
- aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered" role="document">
-	 <div class="modal-content bg-theme1">
-		 <div class="modal-header">
-			 <h5 class="modal-title" id="exampleModalLabel1">Register</h5>
-			 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				 <span aria-hidden="true">&times;</span>
-			 </button>
-		 </div>
-		 <div class="modal-body">
-			 <form action="register2.php" method="post" class="p-3">
-				 <div class="form-group">
-					 <label for="recipient-name" class="col-form-label">Username</label>
-					 <input type="text" class="form-control" placeholder="" name=" name" id="recipient-rname"
-						 required="">
-				 </div>
-				 <div class="form-group">
-					 <label for="recipient-email" class="col-form-label">Email</label>
-					 <input type="email" class="form-control" placeholder="" name="Email" id="recipient-email"
-						 required="">
-				 </div>
-				 <div class="form-group">
-					 <label for="password1" class="col-form-label">Password</label>
-					 <input type="password" class="form-control" placeholder="" name="Password" id="password1"
-						 required="">
-				 </div>
-				 <div class="form-group">
-					 <label for="password2" class="col-form-label">ConfirmPassword</label>
-					 <input type="password" class="form-control" placeholder="" name="Confirm" id="password2"
-						 required="">
-				 </div>
-				 <div class="sub-w3l">
-					 <div class="sub-w3_pvt">
-						 <input type="checkbox" id="brand2" value="">
-						 <label for="brand2" class="mb-3 text-white">
-							 <span></span>I Accept to the Terms & Conditions</label>
-					 </div>
-				 </div>
-				 <div class="right-w3l">
-					 <input type="submit" class="form-control" value="Register">
-				 </div>
-			 </form>
-		 </div>
-	 </div>
- </div>
-</div>
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-theme1">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm" action="register2.php" method="post" class="p-3">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Username</label>
+                            <input type="text" class="form-control" placeholder="" name="name" id="recipient-rname"
+                                   required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-email" class="col-form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="" name="Email" id="recipient-email"
+                                   required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password1" class="col-form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="" name="Password" id="password1"
+                                   required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password2" class="col-form-label">Confirm Password</label>
+                            <input type="password" class="form-control" placeholder="" name="Confirm" id="password2"
+                                   required="">
+                        </div>
+                        <div class="sub-w3l">
+                            <div class="sub-w3_pvt">
+                                <input type="checkbox" id="brand2" value="">
+                                <label for="brand2" class="mb-3 text-white">
+                                    <span></span>I Accept to the Terms & Conditions</label>
+                            </div>
+                        </div>
+                        <div class="right-w3l">
+                            <input type="submit" class="form-control" value="Register">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function (event) {
+            // Prevent default form submission
+            event.preventDefault(); 
+            
+            // Get form data
+            var formData = new FormData(this); 
+
+            // Perform password validation
+            var password = formData.get('Password');
+            if (!validatePassword(password)) {
+                alert("Password must be at least 8 characters long and contain at least 1 number.");
+                return; // Stop further processing
+            }
+
+            // Send form data to register2.php using fetch API
+            fetch('register2.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Display the response from PHP in an alert
+                alert(data);
+                // Close the registration modal if registration is successful
+                if (data === 'Registration successful!') {
+                    $('#exampleModal1').modal('hide'); // Close the registration modal using jQuery
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+
+        function validatePassword(password) {
+            // Password must be at least 8 characters long and contain at least 1 number
+            var regex = /^(?=.*\d).{8,}$/;
+            return regex.test(password);
+        }
+    </script>
 <!-- // register -->
 
+<!-- CART -->
+
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cartLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartLabel">Your Cart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Cart items will be dynamically loaded here -->
+                <div id="cart-items">
+                    <!-- Cart items will be inserted here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 		<script src="js/bliss.js"></script>

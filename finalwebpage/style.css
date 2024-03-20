@@ -255,10 +255,7 @@ containerlogo
 		header.fixed nav.headermenu ul li a{
 			color: #000;
 		}
-		nav.headermenu ul li.active a{
-			background: #008dc7;
-			color: #fff !important;
-		}
+		
 
 
 
@@ -287,7 +284,7 @@ containerlogo
 			margin-right: 0;
 		}
 		.contact-info a i{
-			color: #008dc7;
+			color: #ffffff;
 			margin-right: 5px;
 		}
 		header.fixed .contact-info a{
@@ -393,7 +390,7 @@ containerlogo
 		}
 		.about .text h4{
 			text-align:left;
-			color:#008dc7;
+			color:#ff5e62;
 			font-size:30px;
 			font-family:'Poppins';
 			font-weight: normal;
@@ -540,7 +537,7 @@ containerlogo
 			text-transform: capitalize;
 			font-weight: 800;
 			font-size: 2.3em;
-			color: #ff725a;
+			color: #ff5e62;
 			margin-bottom: 15px;
 			text-align: center;
 		}
@@ -584,7 +581,7 @@ containerlogo
 
 		.footerv4-top {
 			padding: 10em 0;
-			background: url(img/footer.jpg) no-repeat center;
+			background: url(img/footer.jpg);
 			background-size: cover;
 			position: relative;
 		}
@@ -707,13 +704,21 @@ containerlogo
 			object-fit: cover; /* Adjust as needed */
 		}
 
-		 /* Define custom styles for Bootstrap icons */
-		 .icon-cart {
-			color: #000000 ; /* Change color to blue */
+		
+		#cart .modal-body {
+			background-color: rgb(255, 255, 255); /* Dark red color with 50% opacity */
+			color: rgb(0, 0, 0); /* Text color */
+			font-size:20px;
+			font-weight: 400;
+			margin-right: 30px;
+			font-family: 'Poppins';
+		}
+		#cart .modal-footer{
+			
+			font-size:15px;
+			font-weight: 400;
+			margin-right: 30px;
+			font-family: 'Poppins';
 		}
 	
-		.icon-sign-out {
-			color: #000000; /* Change color to red */
-		}
 
-	

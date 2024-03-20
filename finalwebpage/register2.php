@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO profile (username, email, password) VALUES ('$username', '$email', '$password')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "Registration successful!";
+            echo "Registration successful!"; // Return the success message
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

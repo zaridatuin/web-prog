@@ -101,9 +101,9 @@
         } else {
             echo $email;
         }
-		echo '<i class="fas fa-shopping-cart"></i>';
+		echo '<i class="fas fa-shopping-cart"></i></a>';
     } else {
-        echo '<a href="#exampleModal" data-toggle="modal" aria-pressed="false"> LOGIN</a>';
+        echo '<a href="#exampleModal" data-toggle="modal" aria-pressed="false">LOGIN';
     }
     ?>
 	</a>
@@ -143,10 +143,10 @@
                 <?php
                 // Assuming you have an array $distinctCategories containing distinct product categories
                 foreach ($distinctCategories as $category) {
-                    echo '<button class="btn btn-secondary mx-3 mb-5" onclick="filterProducts(\'' . urlencode($category) . '\')">' . $category . '</button>';
+                    echo '<button class="btn btn-dark mx-3 mb-5" onclick="filterProducts(\'' . urlencode($category) . '\')">' . $category . '</button>';
                 }
                 ?>
-                <button class="btn btn-secondary  mb-5" onclick="resetFilter()">All Products</button>
+                <button class="btn btn-dark  mb-5" onclick="resetFilter()">All Products</button>
 				
             </div>
       
@@ -175,6 +175,7 @@
                                         echo $formattedPrice;
                                         ?>
                                     </button>
+									<button type="button" class="btn btn-dark add-to-cart-btn">+</button> <!-- Add this button -->
                                 <?php } ?>
                             </div>
                         </div>
@@ -184,113 +185,211 @@
         </div>
     </div>
 </section>
+
+
 			
-					
 
-				</div>
-				<!--bannercontent-->
+	
 
-			</div>
-		</section>
 
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
- aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered" role="document">
-	 <div class="modal-content bg-theme1">
-		 <div class="modal-header">
-			 <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
-			 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				 <span aria-hidden="true">&times;</span>
-			 </button>
-		 </div>
-		 <div class="modal-body">
-			 <form action="login.php" method="post" class="p-3">
-				 <div class="form-group">
-					 <label for="recipient-name" class="col-form-label">Username</label>
-					 <input type="text" class="form-control" placeholder="" name=" name" id="recipient-name"
-						 required="">
-				 </div>
-				 <div class="form-group">
-					 <label for="password" class="col-form-label">Password</label>
-					 <input type="password" class="form-control" placeholder="" name="Password" id="password"
-						 required="">
-				 </div>
-				 <div class="right-w3l">
-					 <input type="submit" class="form-control" value="Login">
-				 </div>
-				 <div class="row sub-w3l my-3">
-					 <div class="col sub-w3_pvt">
-						 <input type="checkbox" id="brand1" value="">
-						 <label for="brand1" class="text-white">
-							 <span></span>Remember me?</label>
-					 </div>
-					 <div class="col forgot-w3l text-right">
-						 <a href="#" class="text-white">Forgot Password?</a>
-					 </div>
-				 </div>
-				 <p class="text-center dont-do text-white">Don't have an account?
-					 <a href="#" data-toggle="modal" data-target="#exampleModal1" class="text-white">
-						 Register Now</a>
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-theme1">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" class="p-3">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Username</label>
+                            <input type="text" class="form-control" placeholder="" name="name" id="recipient-name"
+                                required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="" name="Password" id="password"
+                                required="">
+                        </div>
+                        <div class="right-w3l">
+                            <input type="submit" class="form-control" value="Login">
+                        </div>
+                        <div class="row sub-w3l my-3">
+                            <div class="col sub-w3_pvt">
+                                <input type="checkbox" id="brand1" value="">
+                                <label for="brand1" class="text-white">
+                                    <span></span>Remember me?</label>
+                            </div>
+                            <div class="col forgot-w3l text-right">
+                                <a href="#" class="text-white">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <p class="text-center dont-do text-white">Don't have an account?
+                            <a href="#" data-toggle="modal" data-target="#exampleModal1" class="text-white">
+                                Register Now</a>
 
-				 </p>
-			 </form>
+                        </p>
+                    </form>
 		 </div>
 	 </div>
  </div>
 </div>
+<script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var formData = new FormData(this); // Get form data
+
+            // Send form data to login.php using fetch API
+            fetch('login.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'success') {
+                    alert('Login successful!');
+                    window.location.href = 'index.php'; // Redirect to index.php
+                } else {
+                    alert('Error: Incorrect username or password.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+    </script>
 <!-- //login -->
 <!-- register -->
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
- aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered" role="document">
-	 <div class="modal-content bg-theme1">
-		 <div class="modal-header">
-			 <h5 class="modal-title" id="exampleModalLabel1">Register</h5>
-			 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				 <span aria-hidden="true">&times;</span>
-			 </button>
-		 </div>
-		 <div class="modal-body">
-			 <form action="register2.php" method="post" class="p-3">
-				 <div class="form-group">
-					 <label for="recipient-name" class="col-form-label">Username</label>
-					 <input type="text" class="form-control" placeholder="" name=" name" id="recipient-rname"
-						 required="">
-				 </div>
-				 <div class="form-group">
-					 <label for="recipient-email" class="col-form-label">Email</label>
-					 <input type="email" class="form-control" placeholder="" name="Email" id="recipient-email"
-						 required="">
-				 </div>
-				 <div class="form-group">
-					 <label for="password1" class="col-form-label">Password</label>
-					 <input type="password" class="form-control" placeholder="" name="Password" id="password1"
-						 required="">
-				 </div>
-				 <div class="form-group">
-					 <label for="password2" class="col-form-label">ConfirmPassword</label>
-					 <input type="password" class="form-control" placeholder="" name="Confirm" id="password2"
-						 required="">
-				 </div>
-				 <div class="sub-w3l">
-					 <div class="sub-w3_pvt">
-						 <input type="checkbox" id="brand2" value="">
-						 <label for="brand2" class="mb-3 text-white">
-							 <span></span>I Accept to the Terms & Conditions</label>
-					 </div>
-				 </div>
-				 <div class="right-w3l">
-					 <input type="submit" class="form-control" value="Register">
-				 </div>
-			 </form>
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-theme1">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm" action="register2.php" method="post" class="p-3">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Username</label>
+                            <input type="text" class="form-control" placeholder="" name="name" id="recipient-rname"
+                                   required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-email" class="col-form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="" name="Email" id="recipient-email"
+                                   required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password1" class="col-form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="" name="Password" id="password1"
+                                   required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password2" class="col-form-label">Confirm Password</label>
+                            <input type="password" class="form-control" placeholder="" name="Confirm" id="password2"
+                                   required="">
+                        </div>
+                        <div class="sub-w3l">
+                            <div class="sub-w3_pvt">
+                                <input type="checkbox" id="brand2" value="">
+                                <label for="brand2" class="mb-3 text-white">
+                                    <span></span>I Accept to the Terms & Conditions</label>
+                            </div>
+                        </div>
+                        <div class="right-w3l">
+                            <input type="submit" class="form-control" value="Register">
+                        </div>
+                    </form>
 		 </div>
 	 </div>
  </div>
 </div>
-<!-- // register -->
+<script>
+        document.getElementById("registerForm").addEventListener("submit", function (event) {
+            // Prevent default form submission
+            event.preventDefault(); 
+            
+            // Get form data
+            var formData = new FormData(this); 
 
+            // Perform password validation
+            var password = formData.get('Password');
+            if (!validatePassword(password)) {
+                alert("Password must be at least 8 characters long and contain at least 1 number.");
+                return; // Stop further processing
+            }
+
+            // Send form data to register2.php using fetch API
+            fetch('register2.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Display the response from PHP in an alert
+                alert(data);
+                // Close the registration modal if registration is successful
+                if (data === 'Registration successful!') {
+                    $('#exampleModal1').modal('hide'); // Close the registration modal using jQuery
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+
+        function validatePassword(password) {
+            // Password must be at least 8 characters long and contain at least 1 number
+            var regex = /^(?=.*\d).{8,}$/;
+            return regex.test(password);
+        }
+    </script>
+<!-- // register -->
+<!-- CART -->
+
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cartLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style = "color: black">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartLabel">Your Cart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Cart items will be dynamically loaded here -->
+                <div id="cart-items">
+                    <!-- Cart items will be inserted here -->
+                </div>
+                <p id="cart-total">Total: ₱0.00</p> <!-- Display the cart total here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-dark btn-proceed-to-checkout">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
+	 $(document).ready(function() {
+		$('.btn-proceed-to-checkout').click(function() {
+        // Hide the modal content when the "Proceed to Checkout" button is clicked
+        $('#cart-items').empty(); // Clear the cart items
+        $('#cart-total').text('Total: ₱0.00'); // Reset the cart total
+        $('#cart').modal('hide');
+    });
+    });
+
     function filterProducts(category) {
         var productsContainer = document.getElementById('products-container');
 
@@ -318,6 +417,59 @@
             products[i].style.display = 'block';
         }
     }
+	$(document).ready(function() {
+    // Add to Cart button click event handler
+    $('.add-to-cart-btn').click(function() {
+    // Get product details from the clicked button's parent card
+    var productCard = $(this).closest('.card');
+    var productName = productCard.find('.card-title').text();
+    var productPriceStr = productCard.find('.wthree-bnr-btn').text();
+
+    // Extract numerical price from the text
+    var productPrice = parseFloat(productPriceStr.replace(/[^\d.]/g, ''));
+
+    // Find the existing cart item with the same product name
+    var existingCartItem = $('#cart-items').find('.cart-product-name').filter(function() {
+        return $(this).text() === productName;
+    });
+
+    if (existingCartItem.length > 0) {
+        // If the product exists, increment its quantity and update its total price
+        var existingQuantity = parseInt(existingCartItem.siblings('.cart-product-quantity').text().replace('x', ''));
+        var newQuantity = existingQuantity + 1;
+        existingCartItem.siblings('.cart-product-quantity').text('x' + newQuantity);
+
+        var existingTotalPriceStr = existingCartItem.siblings('.cart-product-total-price').text();
+        var existingTotalPrice = parseFloat(existingTotalPriceStr.replace(/[^\d.]/g, ''));
+        var newTotalPrice = existingTotalPrice + productPrice;
+        existingCartItem.siblings('.cart-product-total-price').text(' ₱' + newTotalPrice.toFixed(2));
+    } else {
+        // If the product is new, append it to the cart with quantity 1 and its total price
+        var cartItemHtml = '<div class="cart-item">' +
+                               '<p class="cart-product-details">' +
+                                   '<span class="cart-product-name">' + productName + '</span>' +
+                                   '<span class="cart-product-quantity">x1</span>' +
+                                   '<span class="cart-product-total-price">' + productPriceStr + '</span>' +
+                               '</p>' +
+                           '</div>';
+        $('#cart-items').append(cartItemHtml);
+    }
+    
+    // Recalculate the cart total
+    updateCartTotal();
+});
+
+    // Function to recalculate the cart total
+    function updateCartTotal() {
+        var total = 0;
+        $('.cart-product-total-price').each(function() {
+            var priceStr = $(this).text();
+            var price = parseFloat(priceStr.replace(/[^\d.]/g, ''));
+            total += price;
+        });
+        $('#cart-total').text('Total: ₱' + total.toFixed(2));
+    }
+});
 </script>
 		<script src="js/bliss.js"></script>
 		<script src="js/bootstrap.js"></script>
