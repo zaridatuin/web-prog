@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2024 at 03:47 PM
+-- Generation Time: Mar 20, 2024 at 05:16 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -29,13 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cart` (
   `cart_id` int(10) NOT NULL,
-  `user_id` int(10) NOT NULL,
-  `product_id` int(10) NOT NULL,
-  `quantity` varchar(255) NOT NULL,
-  `total_price` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `timestamp` date NOT NULL
+  `email` varchar(255) NOT NULL,
+  `total_price` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `email`, `total_price`) VALUES
+(1, 'zaritalavera@yahoo.com', '450.00');
 
 -- --------------------------------------------------------
 
@@ -64,8 +67,8 @@ INSERT INTO `products` (`product_id`, `productname`, `description`, `price`, `ca
 (5, 'Fish Taco', 'Fish Taco 2pcs', '300', 'Tacos', 1),
 (6, 'Birria Taco', 'Birria Taco 2pcs', '300', 'Tacos', 1),
 (7, 'Pulled Pork Sandwich', 'Pulled Pork Sandwich with Chips', '350', 'Sandwiches', 1),
-(8, 'Smoked Chicken', '200g', '250', 'Smoked Meat', 1),
-(9, 'BBQ Ribs', '250g', '300', 'Smoked Meat', 1);
+(8, 'Smoked Chicken', 'Smoked Chicken 200g', '250', 'Smoked Meat', 1),
+(10, 'BBQ Ribs', 'BBQ Ribs 300g', '350', 'Smoked Meat', 1);
 
 -- --------------------------------------------------------
 
@@ -77,20 +80,20 @@ CREATE TABLE `profile` (
   `user_id` int(10) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `contactnumber` varchar(255) NOT NULL
+  `address` varchar(245) NOT NULL,
+  `number` varchar(245) NOT NULL,
+  `join_date` datetime(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `profile`
 --
 
-INSERT INTO `profile` (`user_id`, `username`, `password`, `firstname`, `lastname`, `email`, `address`, `contactnumber`) VALUES
-(1, 'admin', 'zaridatuin', 'Zari', 'Datuin', 'zaritalavera@yahoo.com', 'Marikina', '09951602318'),
-(6, 'gabriel', 'password', '', '', 'talavera@yahoo.com', '', '');
+INSERT INTO `profile` (`user_id`, `username`, `password`, `email`, `address`, `number`, `join_date`) VALUES
+(1, 'admin', 'zaridatuin', 'zaritalavera@yahoo.com', 'Marikina', '09951602318', '2024-03-20 16:35:54.000000'),
+(22, '', '', '', 'marikina', '09999123123', NULL),
+(24, 'zaridatuin', 'password1', 'zaridatuin@yahoo.com', 'Marikina', '0999123123', '2024-03-20 16:35:54.000000');
 
 --
 -- Indexes for dumped tables
@@ -101,8 +104,7 @@ INSERT INTO `profile` (`user_id`, `username`, `password`, `firstname`, `lastname
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `product_id` (`product_id`);
+  ADD KEY `email` (`email`);
 
 --
 -- Indexes for table `products`
@@ -116,7 +118,8 @@ ALTER TABLE `products`
 --
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`user_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -126,30 +129,19 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `profile` (`user_id`) ON UPDATE CASCADE;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
