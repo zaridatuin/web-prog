@@ -85,9 +85,9 @@
 									</div>
 								</div>
 				            </div>
-				            <!--sitenav-->
+				        
 						</div>
-						<!--site-navwrap-->	
+						
 
 						<div class="contact-info">
 							<a href="#cart" data-toggle="modal" aria-pressed="false"> 
@@ -95,9 +95,9 @@
     session_start();
     if(isset($_SESSION['email'])) {
         $email = $_SESSION['email'];
-        // Check if email length is greater than 8 characters
+      
         if(strlen($email) > 8) {
-            echo substr($email, 0, 8) . ".."; // Display first 8 characters followed by "..."
+            echo substr($email, 0, 8) . ".."; 
         } else {
             echo $email;
         }
@@ -121,7 +121,7 @@
 
 
 				</div>
-				<!--header_default-->
+			
 					
 			</div>
 		</header>
@@ -132,7 +132,6 @@
 
 
 
-<!-- Assuming you have already fetched product names and categories from the database -->
 <?php include('fullmenu.php'); ?>
 
 
@@ -141,7 +140,7 @@
     <div class="container">
 	<div class="category-buttons">
                 <?php
-                // Assuming you have an array $distinctCategories containing distinct product categories
+               
                 foreach ($distinctCategories as $category) {
                     echo '<button class="btn btn-dark mx-3 mb-5" onclick="filterProducts(\'' . urlencode($category) . '\')">' . $category . '</button>';
                 }
@@ -175,7 +174,7 @@
                                         echo $formattedPrice;
                                         ?>
                                     </button>
-									<button type="button" class="btn btn-dark add-to-cart-btn">+</button> <!-- Add this button -->
+									<button type="button" class="btn btn-dark add-to-cart-btn">+</button> 
                                 <?php } ?>
                             </div>
                         </div>
@@ -239,11 +238,11 @@
 </div>
 <script>
         document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault(); 
 
-            var formData = new FormData(this); // Get form data
+            var formData = new FormData(this); 
 
-            // Send form data to login.php using fetch API
+            
             fetch('login.php', {
                 method: 'POST',
                 body: formData
@@ -252,7 +251,7 @@
             .then(data => {
                 if (data === 'success') {
                     alert('Login successful!');
-                    window.location.href = 'index.php'; // Redirect to index.php
+                    window.location.href = 'index.php'; 
                 } else {
                     alert('Error: Incorrect username or password.');
                 }
@@ -324,21 +323,21 @@
             var password = formData.get('Password');
             if (!validatePassword(password)) {
                 alert("Password must be at least 8 characters long and contain at least 1 number.");
-                return; // Stop further processing
+                return; 
             }
 
-            // Send form data to register2.php using fetch API
+          
             fetch('register2.php', {
                 method: 'POST',
                 body: formData
             })
             .then(response => response.text())
             .then(data => {
-                // Display the response from PHP in an alert
+                
                 alert(data);
-                // Close the registration modal if registration is successful
+               
                 if (data === 'Registration successful!') {
-                    $('#exampleModal1').modal('hide'); // Close the registration modal using jQuery
+                    $('#exampleModal1').modal('hide'); 
                 }
             })
             .catch(error => {
@@ -383,9 +382,9 @@
 <script>
 	 $(document).ready(function() {
 		$('.btn-proceed-to-checkout').click(function() {
-        // Hide the modal content when the "Proceed to Checkout" button is clicked
-        $('#cart-items').empty(); // Clear the cart items
-        $('#cart-total').text('Total: ₱0.00'); // Reset the cart total
+      
+        $('#cart-items').empty(); 
+        $('#cart-total').text('Total: ₱0.00'); 
         $('#cart').modal('hide');
     });
     });
@@ -418,23 +417,23 @@
         }
     }
 	$(document).ready(function() {
-    // Add to Cart button click event handler
+    
     $('.add-to-cart-btn').click(function() {
-    // Get product details from the clicked button's parent card
+  
     var productCard = $(this).closest('.card');
     var productName = productCard.find('.card-title').text();
     var productPriceStr = productCard.find('.wthree-bnr-btn').text();
 
-    // Extract numerical price from the text
+ 
     var productPrice = parseFloat(productPriceStr.replace(/[^\d.]/g, ''));
 
-    // Find the existing cart item with the same product name
+   
     var existingCartItem = $('#cart-items').find('.cart-product-name').filter(function() {
         return $(this).text() === productName;
     });
 
     if (existingCartItem.length > 0) {
-        // If the product exists, increment its quantity and update its total price
+      
         var existingQuantity = parseInt(existingCartItem.siblings('.cart-product-quantity').text().replace('x', ''));
         var newQuantity = existingQuantity + 1;
         existingCartItem.siblings('.cart-product-quantity').text('x' + newQuantity);
@@ -444,7 +443,7 @@
         var newTotalPrice = existingTotalPrice + productPrice;
         existingCartItem.siblings('.cart-product-total-price').text(' ₱' + newTotalPrice.toFixed(2));
     } else {
-        // If the product is new, append it to the cart with quantity 1 and its total price
+        
         var cartItemHtml = '<div class="cart-item">' +
                                '<p class="cart-product-details">' +
                                    '<span class="cart-product-name">' + productName + '</span>' +
@@ -455,11 +454,11 @@
         $('#cart-items').append(cartItemHtml);
     }
     
-    // Recalculate the cart total
+    
     updateCartTotal();
 });
 
-    // Function to recalculate the cart total
+  
     function updateCartTotal() {
         var total = 0;
         $('.cart-product-total-price').each(function() {

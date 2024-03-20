@@ -86,23 +86,23 @@
 									</div>
 								</div>
 				            </div>
-				            <!--sitenav-->
+				          
 						</div>
-						<!--site-navwrap-->	
+				
 
 						<div class="contact-info">
-							<a href="#cart" data-toggle="modal" aria-pressed="false"> 
+							<a href="#profile" data-toggle="modal" aria-pressed="false"> 
 							<?php
     session_start();
     if(isset($_SESSION['email'])) {
         $email = $_SESSION['email'];
-        // Check if email length is greater than 8 characters
+       
         if(strlen($email) > 8) {
-            echo substr($email, 0, 8) . ".."; // Display first 8 characters followed by "..."
+            echo substr($email, 0, 8) . ".."; 
         } else {
             echo $email;
         }
-		echo '<a href="#cart"><i class="fas fa-shopping-cart"></i>';
+		
     } else {
         echo '<a href="#exampleModal" data-toggle="modal" aria-pressed="false">LOGIN';
     }
@@ -188,7 +188,7 @@
 		</section>
 		<!-- ABOUT -->
 
-	  <!-- blog -->
+	
 	
 
 	<section class="blog_w3ls py-lg-5" id="menu">
@@ -199,7 +199,7 @@
                 </span>
             </div>
             <div class="row space-sec">
-                <!-- blog grid -->
+               
                 <div class="col-lg-4 col-md-6 mt-sm-0 mt-4" data-aos="zoom-out">
                     <div class="card border-1">
                         <div class="card-header p-0 position-relative">
@@ -221,8 +221,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- //blog grid -->
-                <!-- blog grid -->
+              
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-5 mt-4"  data-aos="zoom-out">
                     <div class="card border-1">
                         <div class="card-header p-0 position-relative">
@@ -244,8 +243,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- //blog grid -->
-                <!-- blog grid -->
+               
                 <div class="col-lg-4 col-md-6 mt-lg-0 mt-5 mx-auto"  data-aos="zoom-out">
                     <div class="card border-1">
                         <div class="card-header p-0  position-relative">
@@ -266,7 +264,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- //blog grid -->
+              
             </div>
 			<div class="row mt-4 text-center">
             <div class="col-md-12">
@@ -296,7 +294,7 @@
 						</div>
 						<hr>
 						<p></p>
-						<!-- map -->
+						
 						<div class="map">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d593.6429875827503!2d120.58563311044705!3d16.413550511125266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a16fe3e655ff%3A0x41eefd411a711fe7!2s3%20Escoda%2C%20Baguio%2C%202600%20Benguet!5e1!3m2!1sen!2sph!4v1708101471421!5m2!1sen!2sph"
 								allowfullscreen></iframe>
@@ -305,7 +303,7 @@
 					</div>
 					<div class="offset-1"></div>
 					<div class="col-lg-6 mt-lg-0 mt-5" data-aos="zoom-in">
-						<!-- register form grid -->
+						
 						<div class="register-top1">
 							<form action="#" method="get" class="register-wthree">
 								<div class="form-group">
@@ -360,7 +358,7 @@
 								</div>
 							</form>
 						</div>
-						<!--  //register form grid ends here -->
+						
 					</div>
 				</div>
 			</div>
@@ -423,7 +421,7 @@
 									</li>
 								</ul>
 							</div>
-							<!-- //footer social -->
+						
 						</div>
 						<div class="col-lg-3 col-sm-6 footv4-left my-lg-0 my-4">
 							<h3>contact</h3>
@@ -440,7 +438,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- /footerv4-top -->
+				
 			</div>
 		</div>
 
@@ -504,11 +502,11 @@
 
     <script>
         document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault(); 
 
-            var formData = new FormData(this); // Get form data
+            var formData = new FormData(this); 
 
-            // Send form data to login.php using fetch API
+       
             fetch('login.php', {
                 method: 'POST',
                 body: formData
@@ -517,7 +515,7 @@
             .then(data => {
                 if (data === 'success') {
                     alert('Login successful!');
-                    window.location.href = 'index.php'; // Redirect to index.php
+                    window.location.href = 'index.php'; 
                 } else {
                     alert('Error: Incorrect username or password.');
                 }
@@ -533,80 +531,91 @@
 <!-- //login -->
 <!-- register -->
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content bg-theme1">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel1">Register</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="registerForm" action="register2.php" method="post" class="p-3">
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Username</label>
-                            <input type="text" class="form-control" placeholder="" name="name" id="recipient-rname"
-                                   required="">
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content bg-theme1">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" action="register2.php" method="post" class="p-3">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Username</label>
+                        <input type="text" class="form-control" placeholder="" name="name" id="recipient-rname"
+                               required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-email" class="col-form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="" name="Email" id="recipient-email"
+                               required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="password1" class="col-form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="" name="Password" id="password1"
+                               required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="password2" class="col-form-label">Confirm Password</label>
+                        <input type="password" class="form-control" placeholder="" name="Confirm" id="password2"
+                               required="">
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="address" class="col-form-label">Address</label>
+                        <input type="text" class="form-control" placeholder="" name="address" id="address"
+                               required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="number" class="col-form-label">Contact Number</label>
+                        <input type="text" class="form-control" placeholder="" name="number" id="number"
+                               required="">
+                    </div>
+                    <div class="sub-w3l">
+                        <div class="sub-w3_pvt">
+                            <input type="checkbox" id="brand2" value="">
+                            <label for="brand2" class="mb-3 text-white">
+                                <span></span>I Accept to the Terms & Conditions</label>
                         </div>
-                        <div class="form-group">
-                            <label for="recipient-email" class="col-form-label">Email</label>
-                            <input type="email" class="form-control" placeholder="" name="Email" id="recipient-email"
-                                   required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="password1" class="col-form-label">Password</label>
-                            <input type="password" class="form-control" placeholder="" name="Password" id="password1"
-                                   required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="password2" class="col-form-label">Confirm Password</label>
-                            <input type="password" class="form-control" placeholder="" name="Confirm" id="password2"
-                                   required="">
-                        </div>
-                        <div class="sub-w3l">
-                            <div class="sub-w3_pvt">
-                                <input type="checkbox" id="brand2" value="">
-                                <label for="brand2" class="mb-3 text-white">
-                                    <span></span>I Accept to the Terms & Conditions</label>
-                            </div>
-                        </div>
-                        <div class="right-w3l">
-                            <input type="submit" class="form-control" value="Register">
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="right-w3l">
+                        <input type="submit" class="form-control" value="Register">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
     <script>
         document.getElementById("registerForm").addEventListener("submit", function (event) {
-            // Prevent default form submission
+           
             event.preventDefault(); 
             
-            // Get form data
+        
             var formData = new FormData(this); 
 
-            // Perform password validation
+         
             var password = formData.get('Password');
             if (!validatePassword(password)) {
                 alert("Password must be at least 8 characters long and contain at least 1 number.");
-                return; // Stop further processing
+                return; 
             }
 
-            // Send form data to register2.php using fetch API
+        
             fetch('register2.php', {
                 method: 'POST',
                 body: formData
             })
             .then(response => response.text())
             .then(data => {
-                // Display the response from PHP in an alert
+                
                 alert(data);
-                // Close the registration modal if registration is successful
+               
                 if (data === 'Registration successful!') {
-                    $('#exampleModal1').modal('hide'); // Close the registration modal using jQuery
+                    $('#exampleModal1').modal('hide'); 
                 }
             })
             .catch(error => {
@@ -635,9 +644,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Cart items will be dynamically loaded here -->
+              
                 <div id="cart-items">
-                    <!-- Cart items will be inserted here -->
+                  
                 </div>
             </div>
             <div class="modal-footer">
@@ -647,6 +656,58 @@
         </div>
     </div>
 </div>
+<!-- PROFILE PAGE -->
+
+
+<div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="color:black">
+      <div class="modal-header">
+        <h5 class="modal-title" id="profileLabel">Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="profileContent">
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+
+
+function fetchUserProfile() {
+    $.ajax({
+        url: 'profile.php',
+        type: 'POST',
+        dataType: 'json',
+        success: function(response) {
+            
+            $('#profileContent').html(
+                '<p><b>Username:</b> ' + response.username + '</p>' +
+                '<p><b>Email:</b> ' + response.email + '</p>' +
+                '<p><b>Address:</b> ' + response.address + '</p>' +
+                '<p><b>Contact Number:</b> ' + response.number + '</p>' +
+                '<p><b>Join Date:</b> ' + response.join_date + '</p>'
+            );
+        },
+        error: function(xhr, status, error) {
+        
+            $('#profileContent').html('<p>Error fetching profile: ' + xhr.responseText + '</p>');
+        }
+    });
+}
+
+
+$('#profile').on('shown.bs.modal', function() {
+    fetchUserProfile();
+});
+</script>
 
 
 		<script src="js/bliss.js"></script>
